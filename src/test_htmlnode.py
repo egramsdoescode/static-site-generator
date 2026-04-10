@@ -12,15 +12,15 @@ class TestHTMLNode(unittest.TestCase):
             {"href": "https://www.google.com", "target": "_blank"},
         )
 
-    def test__repr__(self):
-        expected_repr = """
-tag:      a
-value:    test link
-children: None
-props:    {'href': 'https://www.google.com', 'target': '_blank'}
-        """
-
-        self.assertEqual(repr(self.node), expected_repr)
+    def test_repr(self):
+        expected = (
+            "\ntag:      a\n"
+            "value:    test link\n"
+            "children: None\n"
+            "props:    {'href': 'https://www.google.com', 'target': '_blank'}\n"
+            "        "
+        )
+        self.assertEqual(repr(self.node), expected)
 
     def test_to_html(self):
         with self.assertRaises(NotImplementedError):
