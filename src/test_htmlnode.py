@@ -4,12 +4,13 @@ from htmlnode import HTMLNode
 
 
 class TestHTMLNode(unittest.TestCase):
-    node = HTMLNode(
-        "a",
-        "test link",
-        None,
-        {"href": "https://www.google.com", "target": "_blank"},
-    )
+    def setUp(self):
+        self.node = HTMLNode(
+            "a",
+            "test link",
+            None,
+            {"href": "https://www.google.com", "target": "_blank"},
+        )
 
     def test__repr__(self):
         expected_repr = """
@@ -27,5 +28,4 @@ props:    {'href': 'https://www.google.com', 'target': '_blank'}
 
     def test_props_to_html(self):
         expected_props = ' href="https://www.google.com" target="_blank"'
-
         self.assertEqual(self.node.props_to_html(), expected_props)
